@@ -13,7 +13,7 @@ type Router struct {
 }
 
 // Instantiate new router
-func NewRouter(renderer, templatesDir string) *Router {
+func NewRouter(templatesDir string) *Router {
 	r := &Router{
 		Routes:    make(map[string]string),
 		Directory: templatesDir,
