@@ -28,11 +28,13 @@ func (r *Router) defaultTemplateRenderer(w http.ResponseWriter, templatePath str
 	tmpl, err := template.ParseFiles(templatePath)
 	if err != nil {
 		http.Error(w, "No template found", http.StatusNotFound)
+		return err
 	}
 
 	err = tmpl.Execute(w, nil)
 	if err != nil {
 		http.Error(w, "Failed to open template", http.StatusInternalServerError)
+		return err
 	}
 
 	return nil
